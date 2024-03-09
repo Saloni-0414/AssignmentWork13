@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<script>
+    // JavaScript for client-side validation
+    function validateForm() {
+        var password = document.getElementById("password").value;
+        var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/;
+
+        if (!regex.test(password)) {
+            alert("Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.");
+            return false;
+        }
+        return true;
+    }
+</script>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form name="registrationForm" onsubmit="return validateForm()" method="post">
+    <label for="full_name">Full Name:</label><br>
+    <input type="text" id="full_name" name="full_name" required><br>
+    
+    <label for="email">Email Address:</label><br>
+    <input type="email" id="email" name="email" required><br>
+    
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br>
+    
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+    
+    <input type="submit" value="Register">
+</form> 
+
+</body>
+</html>
